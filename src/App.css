@@ -27,6 +27,16 @@
 .App-link {
   color: #61dafb;
 }
+.color-nav {
+  background-color: #0e67b4;
+}
+.btn-options {
+  background-color: #0e67b4;
+  color: #271801;
+}
+.navbarbrand-class {
+  color: red;
+}
 
 @keyframes App-logo-spin {
   from {
