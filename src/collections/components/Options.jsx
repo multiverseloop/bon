@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
 import { Container, Row, Col , Card,Button,Carousel} from 'react-bootstrap';
+import { Navigate } from "react-router-dom";
 class options extends React.Component {
+    constructor(props){
+        super(props);
+        // this.handleSubmit=this.handleSubmit.bind(this);
+        this.state = {option:''}
+        console.log('I am in props')
+      }
+
+
     render() { 
         return (
     <Container>
+     {this.state.option==="paynow" && (<Navigate to="/paynow" replace={true} />)} 
+     {this.state.option==="confirmpayment" && (<Navigate to="/confirmpayment" replace={true} />)} 
+     {this.state.option==="promise" && (<Navigate to="/promise" replace={true} />)} 
       <Row>
       <Col>
-      <Button variant="primary">Pay Now</Button>
+      <Button variant="primary" onClick={e => this.setState({ option: "paynow" })}>Pay Now</Button>
       </Col>
       <Col>
       <Card.Text>
@@ -17,7 +29,7 @@ class options extends React.Component {
       <Row><Col><br/></Col></Row>
       <Row>
       <Col>
-      <Button variant="primary">Already Paid</Button>
+      <Button variant="primary" onClick={e => this.setState({ option: "confirmpayment" })}>Already Paid</Button>
       </Col>
       <Col>
       <Card.Text>
@@ -28,7 +40,7 @@ class options extends React.Component {
       <Row><Col><br/></Col></Row>
       <Row>
       <Col>
-      <Button variant="primary">Promise to Pay</Button>
+      <Button variant="primary" onClick={e => this.setState({ option: "promise" })}>Promise to Pay</Button>
       </Col>
       <Col>
       <Card.Text>
@@ -47,7 +59,10 @@ class options extends React.Component {
       </Card.Text>
       </Col>
       </Row>
+      
     </Container>
+
+   
          ) ;
     }
 }

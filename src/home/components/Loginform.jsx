@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form , Button} from 'react-bootstrap';
 import Collections from '../../collections/components/Collections';
 import { Container, Row, Col } from 'react-bootstrap';
+import { Navigate } from "react-router-dom";
 
 
 class Loginform extends React.Component {
@@ -22,10 +23,7 @@ class Loginform extends React.Component {
       console.log(this.state);
         return (
         <div>
-        {this.state.showCollections
-        ?<Collections name={this.state.fullName}/>
-
-        :
+        {this.state.showCollections && (<Navigate to="/collections" replace={true} />)} 
         <div>
         <Row>
             <Col><h1>Before you get started...</h1></Col>
@@ -46,7 +44,6 @@ class Loginform extends React.Component {
       </Form>
       </Row>
       </div>
-        }
 
       </div>
       );

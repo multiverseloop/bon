@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Header from '../../shared/components/Header';
 import { Container, Row, Col , Card,Button,Carousel} from 'react-bootstrap';
-import logo from '../../assets/Bank of Naboo-logos.jpeg'
-import savetrees from '../../assets/SavePaper.jpg'
 import Options from './Options';
+import CollectionsCarousel from '../../shared/components/carousel';
 
 class Collections extends React.Component {
     render() { 
@@ -21,22 +20,7 @@ class Collections extends React.Component {
       <Col>
         
             <Card style={{ width: '28rem' }}>
-            <Carousel>
-  <Carousel.Item>
-    <img
-      className="d-block"
-      src= {logo}
-      alt="First slide" width="450"
-    />
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block"
-      src= {savetrees}
-      alt="First slide" width="450"
-    />
-  </Carousel.Item>
-  </Carousel>
+            <CollectionsCarousel/>
     
     <Card.Body>
     <Card.Title>Due on your Credit Card ending 1234</Card.Title>
