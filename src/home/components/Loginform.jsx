@@ -9,7 +9,7 @@ class Loginform extends React.Component {
   constructor(props){
     super(props);
     // this.handleSubmit=this.handleSubmit.bind(this);
-    this.state = {fullName:'',email:'',showCollections:false}
+    this.state = {fullName:'',email:'',phone:'',showCollections:false}
     console.log('I am in props')
   }
 
@@ -37,6 +37,10 @@ class Loginform extends React.Component {
         <Form.Group className="mb-3" controlId="formBasicEmail" >
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" onChange={e => this.setState({ email: e.target.value })} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formPhone" >
+          <Form.Label>Mobile  Number</Form.Label>
+          <Form.Control type="tel" placeholder="Enter Mobile Number" onChange={e => this.setState({ phone: e.target.value })} />
         </Form.Group>
         <Button variant="dark" type="submit" onClick={e => this.setState({ showCollections: true })}>
           Submit

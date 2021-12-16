@@ -29,7 +29,7 @@ class ConfirmPayment extends React.Component {
               
               <Col>
                 
-                    <Card style={{ width: '28rem' }}>
+              <Card style={{ width: '33rem' }}>
                     <CollectionsCarousel/>
             
             <Card.Body>
