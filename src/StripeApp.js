@@ -34,7 +34,7 @@ app.post("/create-payment-intent", async (req, res) => {
 const sgMail = require('@sendgrid/mail')
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 const msg = {
-  to: 'bulususashank@gmail.com', // Change to your recipient
+  to: 'sashankbulusu@fico.com', // Change to your recipient
   from: 'test@collections.sayshank.com', // Change to your verified sender
   templateId:'d-674276721c984cc28740b07544607e03'
   
