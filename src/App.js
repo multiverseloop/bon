@@ -7,7 +7,7 @@ import Collections from './collections/components/Collections';
 import ConfirmPayment from './resolutions/components/ConfirmPayment';
 import Promise from './resolutions/components/PTP';
 import PaymentOptions from './payments/components/PaymentOptions';
-
+import ConfirmedPayment from './finalconfirmation/ConfirmedPayment';
 
 
 
@@ -21,6 +21,7 @@ function App() {
       <Route path="/collections" element={<Collections />} />
       <Route path="/paynow" element={<PayNow />} />
       <Route path="/confirmpayment" element={<ConfirmPayment />} />
+      <Route path="/confirmedpaymentfinal" element={<ConfirmedPayment />} />
       <Route path="/promise" element={<Promise />} />
     </Routes>
   </BrowserRouter>

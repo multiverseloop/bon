@@ -19,6 +19,7 @@ class ConfirmPayment extends React.Component {
             <div>
             <Container>
             {this.state.option==="collections" && (<Navigate to="/collections" replace={true} />)} 
+            {this.state.option==="confirmed" && (<Navigate to="/confirmedpaymentfinal" replace={true} />)} 
             <Row><br/></Row>
             <Row>
               <Col>
@@ -43,7 +44,7 @@ class ConfirmPayment extends React.Component {
               </Card.Text>
               <Row>
               <Col><Button variant="danger" size="lg" onClick={e => this.setState({ option: "collections" })}>Back</Button></Col>
-              <Col><Button variant="primary" size="lg" disabled>Submit</Button></Col>
+              <Col><Button variant="primary" size="lg" onClick={e => this.setState({ option: "confirmed" })}>Submit</Button></Col>
           </Row>
             </Card.Body>
           </Card>
