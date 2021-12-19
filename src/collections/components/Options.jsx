@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import { Container, Row, Col , Card,Button,Carousel} from 'react-bootstrap';
 import { Navigate } from "react-router-dom";
+
+
 class options extends React.Component {
     constructor(props){
         super(props);
         // this.handleSubmit=this.handleSubmit.bind(this);
         this.state = {option:''}
-        console.log('I am in props')
+        console.log(props)
+
+        
       }
 
 

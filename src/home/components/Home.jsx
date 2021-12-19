@@ -1,23 +1,27 @@
-import React, { Component } from 'react';
-import Header from '../../shared/components/Header';
-import { Container, Row, Col } from 'react-bootstrap';
-import Loginform from './Loginform';
+import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Container, Row, Col , Card,Button,Carousel} from 'react-bootstrap';
+import CollectionsCarousel from '../../shared/components/carousel';
 
 
+const Home = () => {
+  const { loginWithRedirect } = useAuth0();
 
-class Home extends React.Component {
-    render() { 
-        return (
-        <div>
-           <Header/>
-           <Container>
+  return (
   
-  <Row>
-    <Col><Loginform/></Col>
-  </Row>
-</Container>
-        </div>);
-    }
-}
- 
+  <div>
+   <Card style={{ width: '33rem' }}>
+            <CollectionsCarousel/>
+    
+    <Card.Body>
+    <Card.Title>BON Collections management</Card.Title>
+      <Card.Text>
+      Please proceed to login
+      </Card.Text>
+    </Card.Body>
+  </Card>
+  <button onClick={() => loginWithRedirect()}>Log In</button>
+  </div>);
+};
+
 export default Home;

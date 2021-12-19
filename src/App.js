@@ -8,10 +8,13 @@ import ConfirmPayment from './resolutions/components/ConfirmPayment';
 import Promise from './resolutions/components/PTP';
 import PaymentOptions from './payments/components/PaymentOptions';
 import ConfirmedPayment from './finalconfirmation/ConfirmedPayment';
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
 function App() {
+
+  const { isLoading, error } = useAuth0();
 
   return (
    <div>

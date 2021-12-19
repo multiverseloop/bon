@@ -4,11 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
+import { Auth0Provider } from "@auth0/auth0-react";
 
 
 ReactDOM.render(
   <React.StrictMode>
+  <Auth0Provider
+    domain="dev-mhygi17l.eu.auth0.com"
+    clientId="P9XslLnbnkmg1eApfKsDEDA3nfEuEW9C"
+    redirectUri="http://localhost:3000/collections">
     <App />
+    </Auth0Provider>,
   </React.StrictMode>,
   document.getElementById('root')
 );
