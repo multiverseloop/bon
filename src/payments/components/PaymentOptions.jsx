@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
+import { Elements, onReady } from "@stripe/react-stripe-js";
 
 import CheckoutForm from "./CheckoutForm";
 import "../../App.css";
@@ -12,6 +12,7 @@ const stripePromise = loadStripe("pk_test_51JzgHuIeuSsnNXhOhfbKnYmhGtCCJhgtnQf6Q
 
 export default function App() {
   const [clientSecret, setClientSecret] = useState("");
+  const [IsLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
@@ -36,8 +37,9 @@ export default function App() {
 
   return (
     <div className="App">
+      {!IsLoading && (<h1>is loading</h1>)}
       {clientSecret && (
-        <Elements options={options} stripe={stripePromise}>
+        <Elements options={options} stripe={stripePromise} onReady={() => setIsLoading(false)} >
           <CheckoutForm />
         </Elements>
       )}

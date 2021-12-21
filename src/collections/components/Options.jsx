@@ -20,6 +20,7 @@ class options extends React.Component {
      {this.state.option==="paynow" && (<Navigate to="/paynow" replace={true} />)} 
      {this.state.option==="confirmpayment" && (<Navigate to="/confirmpayment" replace={true} />)} 
      {this.state.option==="promise" && (<Navigate to="/promise" replace={true} />)} 
+     {this.state.option==="help" && (<Navigate to="/help" replace={true} />)} 
       <Row>
       <Col>
       <Button variant="primary" onClick={e => this.setState({ option: "paynow" })}>Pay Now</Button>
@@ -55,11 +56,11 @@ class options extends React.Component {
       <Row><Col><br/></Col></Row>
       <Row>
       <Col>
-      <Button variant="primary">Pay Later</Button>
+      <Button variant="primary" onClick={e => this.setState({ option: "help" })}>Help</Button>
       </Col>
       <Col>
       <Card.Text>
-        Dont have time? No Problem! Tell us when and we can remind you.
+        Have problems with the payment ?  we can help.
       </Card.Text>
       </Col>
       </Row>

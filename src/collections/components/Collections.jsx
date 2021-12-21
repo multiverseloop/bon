@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from '../../shared/components/Header';
-import { Container, Row, Col , Card,Button,Carousel} from 'react-bootstrap';
+import { Container, Row, Col , Card,Button,Carousel, Spinner} from 'react-bootstrap';
 import Options from './Options';
 import CollectionsCarousel from '../../shared/components/carousel';
 import { useNavigate, useLocation } from "react-router-dom";
@@ -14,17 +14,19 @@ export default function Collections(props)
     const { user, isAuthenticated, isLoading } = useAuth0();
     console.log(user)
     const { logout } = useAuth0();
+
+   
+  
+
     
         return (
           isAuthenticated && (
         <div>
-    <Container>
-    <Row><br/></Row>
-    <Row>
-      <Col>
-      
-      </Col>
-    </Row>
+          <Container>
+            <Row><br/></Row>
+             <Row>
+              <Col></Col>
+              </Row>
     <Row>
       
       <Col>

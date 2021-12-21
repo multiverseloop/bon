@@ -5,12 +5,15 @@ import {
   useElements
 } from "@stripe/react-stripe-js";
 
+import Loader from "../../shared/components/Loader";
+
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [widgetLoading, setWidgetLoading] = useState(true);
 
   useEffect(() => {
     if (!stripe) {
@@ -78,7 +81,8 @@ export default function CheckoutForm() {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
-      <PaymentElement id="payment-element" />
+      {widgetLoading && (<Loader />)}
+      <PaymentElement id="payment-element" onReady={() => setWidgetLoading(false)} />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
