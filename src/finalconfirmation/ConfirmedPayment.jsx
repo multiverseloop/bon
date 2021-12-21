@@ -3,17 +3,21 @@ import { Container, Row, Col , Card,Button,Carousel} from 'react-bootstrap';
 import Form from "react-bootstrap/Form"
 import { Navigate } from "react-router-dom";
 import CollectionsCarousel from '../shared/components/carousel';
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
 export default function App() {
   const [option, setOption] = useState("");
+  const { user} = useAuth0();
   useEffect(() => {
+  
+
     // Create PaymentIntent as soon as the page loads
     fetch("/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+      body: JSON.stringify({ items: [{ id: "xl-tshirt" }],email:user.email }),
     })
       
   }, []);
