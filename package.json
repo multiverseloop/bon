@@ -2,7 +2,7 @@
   "name": "product-demo",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://collections.sayshank.com:4242",
+  "proxy": "http://localhost:4242",
   "dependencies": {
     "@auth0/auth0-react": "^1.8.0",
     "@date-io/date-fns": "^2.11.0",
