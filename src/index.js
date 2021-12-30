@@ -12,7 +12,7 @@ ReactDOM.render(
   <Auth0Provider
     domain="dev-mhygi17l.eu.auth0.com"
     clientId="P9XslLnbnkmg1eApfKsDEDA3nfEuEW9C"
-    redirectUri="http://localhost:3000/collections">
+    redirectUri= { window.location.origin + "/collections"} >
     <App />
     </Auth0Provider>,
   </React.StrictMode>,
