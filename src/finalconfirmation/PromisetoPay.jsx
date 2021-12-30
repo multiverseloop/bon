@@ -18,13 +18,13 @@ export default function App() {
     fetch("/send-email", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }],email:user.email,templateId:"d-674276721c984cc28740b07544607e03" }),
+      body: JSON.stringify({ items: [{ id: "xl-tshirt" }],email:user.email,templateId:"d-489a0233899545f1ad051bc48b2306ef" }),
     })
 
     fetch("/updateStatus", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: user.email, collectionsStatus:"CONFIRMED_PAYMENT", resolvedStatus:true,resolvedData:{CPDate:location.state} }),
+      body: JSON.stringify({ email: user.email, collectionsStatus:"PTP", resolvedStatus:true,resolvedData:{PTPDate:location.state} }),
     })
       
   }, []);
@@ -52,8 +52,9 @@ export default function App() {
               Thanks for confirming.
               </Card.Text>
               <Card.Text>
-              We noted that a payment has already been made on {location.state}
+              We have noted that a payment will be made by {location.state}
               </Card.Text>
+            
               <Row>
               <Col><Button variant="danger" size="lg" onClick={e => setOption( "collections")}>Back</Button></Col>
           </Row>

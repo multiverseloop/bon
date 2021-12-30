@@ -6,6 +6,7 @@ import {
 } from "@stripe/react-stripe-js";
 
 import Loader from "../../shared/components/Loader";
+import {Button} from 'react-bootstrap';
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -83,11 +84,8 @@ export default function CheckoutForm() {
     <form id="payment-form" onSubmit={handleSubmit}>
       {widgetLoading && (<Loader />)}
       <PaymentElement id="payment-element" onReady={() => setWidgetLoading(false)} />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-        </span>
-      </button>
+      <br/>
+      <Button size="lg" variant="primary" disabled={isLoading || !stripe || !elements}>Pay now</Button>
 
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}

@@ -1,24 +1,38 @@
-import React, { Component } from 'react';
+import React, {useState, Component } from 'react';
 import { Container, Row, Col , Card,Button,Carousel} from 'react-bootstrap';
 import Form from "react-bootstrap/Form"
 import { Navigate } from "react-router-dom";
 import CollectionsCarousel from '../../shared/components/carousel';
+import dateFormat, { masks } from "dateformat";
 
 
 
-class Promise extends React.Component {
-    constructor(props){
-        super(props);
-        // this.handleSubmit=this.handleSubmit.bind(this);
-        this.state = {option:''}
-        console.log('I am in props')
-      }
+export default function PTP() {
+  const [option, setOption] = useState("");
+  const [PTPDate,setPTPDate] = useState("")
+  const [disabled,setDisabled] = useState(true)
+  const originaltoday = new Date();
+  const today = dateFormat(originaltoday,"yyyy-mm-dd")
+  const originalmaxDate = new Date();
+  originalmaxDate.setDate(originalmaxDate.getDate() + 10)
+  const maxDate = dateFormat(originalmaxDate,"yyyy-mm-dd")
+  
 
-    render() { 
+  console.log(today)
+  console.log(maxDate)
+
+  const handleChange = (event) => {
+    setPTPDate(event.target.value)
+    setDisabled(false)
+  }
+
+
         return (
             <div>
             <Container>
-            {this.state.option==="collections" && (<Navigate to="/collections" replace={true} />)} 
+            {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
+            {option==="ptp" && (<Navigate to="/promisetopay" replace={true} state={PTPDate} />)} 
+            
             <Row><br/></Row>
             <Row>
               <Col>
@@ -29,7 +43,7 @@ class Promise extends React.Component {
               
               <Col>
                 
-              <Card style={{ width: '33rem' }}>
+              <Card >
                     <CollectionsCarousel/>
             
             <Card.Body>
@@ -39,11 +53,11 @@ class Promise extends React.Component {
               </Card.Text>
               <Card.Text>
               Please select the date and click on submit. 
-              <Form.Control type="date" name='date_of_birth' />
+              <Form.Control type="date" name="date_of_birth"  onChange={handleChange} min={today} max={maxDate} />
               </Card.Text>
               <Row>
-              <Col><Button variant="danger" size="lg" onClick={e => this.setState({ option: "collections" })}>Back</Button></Col>
-              <Col><Button variant="primary" size="lg" disabled>Submit</Button></Col>
+              <Col><Button variant="danger" size="lg" onClick={e => setOption("collections")}>Back</Button></Col>
+              <Col><Button variant="primary" size="lg" onClick={e => setOption("ptp")} disabled={disabled}>Submit</Button></Col>
           </Row>
             </Card.Body>
           </Card>
@@ -55,6 +69,5 @@ class Promise extends React.Component {
         </Container>
                 </div>);
     }
-}
+
  
-export default Promise;

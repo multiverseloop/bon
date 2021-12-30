@@ -30,7 +30,7 @@ class PayNow extends React.Component {
           <Row>
             <Col>
               
-                  <Card style={{ width: '33em' }}>
+                  <Card>
                   <CollectionsCarousel/>
           
           <Card.Body>
@@ -43,7 +43,9 @@ class PayNow extends React.Component {
             </Card.Text>
             <Row>
             <PaymentOptions/>
+          
         </Row>
+        <Row><br/></Row>
         <Row>
               <Col><Button variant="danger" size="lg" onClick={e => this.setState({ option: "collections" })}>Back</Button></Col>
               

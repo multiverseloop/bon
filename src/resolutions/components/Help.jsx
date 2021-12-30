@@ -19,7 +19,7 @@ function Help() {
     
     <Col>
       
-          <Card style={{ width: '33rem' }}>
+          <Card >
           <CollectionsCarousel/>
   
   <Card.Body>

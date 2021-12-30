@@ -9,7 +9,10 @@ import Promise from './resolutions/components/PTP';
 import Help from './resolutions/components/Help';
 import PaymentOptions from './payments/components/PaymentOptions';
 import ConfirmedPayment from './finalconfirmation/ConfirmedPayment';
+import PromisetoPay from './finalconfirmation/PromisetoPay';
 import { useAuth0 } from "@auth0/auth0-react";
+import resolvedCP from './alreadyResolved/components/resolvedCP'
+import PromisePTP from './alreadyResolved/components/promisePTP'
 
 
 
@@ -26,6 +29,9 @@ function App() {
       <Route path="/paynow" element={<PayNow />} />
       <Route path="/confirmpayment" element={<ConfirmPayment />} />
       <Route path="/confirmedpaymentfinal" element={<ConfirmedPayment />} />
+      <Route path="/promisetopay" element={<PromisetoPay />} />
+      <Route path="/resolvedCP" element={<resolvedCP />} />
+      <Route path="/promisePTP" element={<PromisePTP />} />
       <Route path="/promise" element={<Promise />} />
       <Route path="/help" element={<Help />} />
     </Routes>

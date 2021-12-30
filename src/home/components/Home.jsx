@@ -10,7 +10,7 @@ const Home = () => {
   return (
   
   <div>
-   <Card style={{ width: '33rem' }}>
+   <Card >
             <CollectionsCarousel/>
     
     <Card.Body>

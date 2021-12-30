@@ -16,11 +16,14 @@ class options extends React.Component {
 
     render() { 
         return (
-    <Container>
+    <div>
      {this.state.option==="paynow" && (<Navigate to="/paynow" replace={true} />)} 
      {this.state.option==="confirmpayment" && (<Navigate to="/confirmpayment" replace={true} />)} 
      {this.state.option==="promise" && (<Navigate to="/promise" replace={true} />)} 
      {this.state.option==="help" && (<Navigate to="/help" replace={true} />)} 
+     <Card.Text>
+      We understand this may be an oversight. Let us help you resolving this easily. Please choose one of the following options to inform us of your intentions.
+      </Card.Text>
       <Row>
       <Col>
       <Button variant="primary" onClick={e => this.setState({ option: "paynow" })}>Pay Now</Button>
@@ -64,8 +67,9 @@ class options extends React.Component {
       </Card.Text>
       </Col>
       </Row>
+      <Row><br/></Row>
       
-    </Container>
+    </div>
 
    
          ) ;

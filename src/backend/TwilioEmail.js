@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
 const msg = {
   to: req.body.email, // Change to your recipient
   from: 'test@collections.sayshank.com', // Change to your verified sender
-  templateId:'d-674276721c984cc28740b07544607e03'
+  templateId:req.body.templateId
   
 }
 sgMail

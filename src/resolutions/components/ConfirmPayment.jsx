@@ -1,25 +1,43 @@
-import React, { Component } from 'react';
+
+import React, {useState, Component } from 'react';
 import { Container, Row, Col , Card,Button,Carousel} from 'react-bootstrap';
 import Form from "react-bootstrap/Form"
 import { Navigate } from "react-router-dom";
 import CollectionsCarousel from '../../shared/components/carousel';
+import dateFormat, { masks } from "dateformat";
 
 
 
-class ConfirmPayment extends React.Component {
-    constructor(props){
-        super(props);
-        // this.handleSubmit=this.handleSubmit.bind(this);
-        this.state = {option:''}
-        console.log('I am in props')
-      }
+export default function ConfirmPayment() {
+  const [option, setOption] = useState("");
+  const [cpDate,setcpDate] = useState("")
+  const [disabled,setDisabled] = useState(true)
+  const originaltoday = new Date();
+  const today = dateFormat(originaltoday,"yyyy-mm-dd")
+  const originalminDate = new Date();
+  originalminDate.setDate(originalminDate.getDate() - 10)
+  const minDate = dateFormat(originalminDate,"yyyy-mm-dd")
 
-    render() { 
+
+ 
+
+  
+
+  console.log(today)
+  console.log(minDate)
+ 
+  const handleChange = (event) => {
+    setcpDate(event.target.value)
+    setDisabled(false)
+  }
+
+      
         return (
             <div>
             <Container>
-            {this.state.option==="collections" && (<Navigate to="/collections" replace={true} />)} 
-            {this.state.option==="confirmed" && (<Navigate to="/confirmedpaymentfinal" replace={true} />)} 
+            {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
+            
+            {option==="confirmed" && (<Navigate to="/confirmedpaymentfinal" replace={true} state={cpDate}/>)} 
             <Row><br/></Row>
             <Row>
               <Col>
@@ -30,7 +48,7 @@ class ConfirmPayment extends React.Component {
               
               <Col>
                 
-              <Card style={{ width: '33rem' }}>
+              <Card>
                     <CollectionsCarousel/>
             
             <Card.Body>
@@ -40,11 +58,14 @@ class ConfirmPayment extends React.Component {
               </Card.Text>
               <Card.Text>
               Please select the date and click on submit. 
-              <Form.Control type="date" name='date_of_birth' />
+             
+              <Form.Control type="date" name="date_of_birth"  onChange={handleChange} min={minDate} max={today} />
+              
+        
               </Card.Text>
               <Row>
-              <Col><Button variant="danger" size="lg" onClick={e => this.setState({ option: "collections" })}>Back</Button></Col>
-              <Col><Button variant="primary" size="lg" onClick={e => this.setState({ option: "confirmed" })}>Submit</Button></Col>
+              <Col><Button variant="danger" size="lg" onClick={e => setOption("collections")}>Back</Button></Col>
+              <Col><Button variant="primary" size="lg" onClick={e => setOption("confirmed")} disabled={disabled}>Submit</Button></Col>
           </Row>
             </Card.Body>
           </Card>
@@ -56,6 +77,5 @@ class ConfirmPayment extends React.Component {
         </Container>
                 </div>);
     }
-}
+
  
-export default ConfirmPayment;
