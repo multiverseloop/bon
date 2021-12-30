@@ -1,6 +1,6 @@
 @media all and (max-width: 320px) {
   .d-block {
-    max-width: 20rem;
+    max-width: 17rem;
     width:100%;
     height:auto;
   }
@@ -41,7 +41,7 @@
 
 @media all and (min-width:321px) and (max-width: 375px) {
   .d-block {
-    max-width: 22rem;
+    max-width: 20rem;
     width:100%;
     height:auto;
   }

@@ -61,7 +61,7 @@ export default function Afterlogin () {
         <div>
           <Container><Row><br/></Row><Row><Col></Col></Row>
     <Row><Col>
-    <Card>
+    <Card >
     <CollectionsCarousel/>
     <Card.Body>
     <Card.Title>Due on your Credit Card ending 1234</Card.Title>
