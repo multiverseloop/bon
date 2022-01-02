@@ -16,10 +16,10 @@ export default function App() {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("/create-payment-intent", {
+    fetch("https://tv0t7pabab.execute-api.eu-central-1.amazonaws.com/dev/createpaymentintent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ items: [{ id: "xl-tshirt" }] }),
+      body: JSON.stringify({ amount: 100 }),
     })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
