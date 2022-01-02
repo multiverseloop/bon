@@ -15,13 +15,13 @@ export default function App() {
   
 
     // Create PaymentIntent as soon as the page loads
-    fetch("/send-email", {
+    fetch("https://tv0t7pabab.execute-api.eu-central-1.amazonaws.com/dev/sendmail", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ items: [{ id: "xl-tshirt" }],email:user.email,templateId:"d-674276721c984cc28740b07544607e03" }),
     })
 
-    fetch(" https://tv0t7pabab.execute-api.eu-central-1.amazonaws.com/dev/updatestatus", {
+    fetch("https://tv0t7pabab.execute-api.eu-central-1.amazonaws.com/dev/updatestatus", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: user.email, collectionsStatus:"CONFIRMED_PAYMENT", resolvedStatus:true,resolvedData:{CPDate:location.state} }),
