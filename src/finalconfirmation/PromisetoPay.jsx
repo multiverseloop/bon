@@ -21,7 +21,7 @@ export default function App() {
       body: JSON.stringify({ items: [{ id: "xl-tshirt" }],email:user.email,templateId:"d-489a0233899545f1ad051bc48b2306ef" }),
     })
 
-    fetch("/updateStatus", {
+    fetch(" https://tv0t7pabab.execute-api.eu-central-1.amazonaws.com/dev/updatestatus", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email: user.email, collectionsStatus:"PTP", resolvedStatus:true,resolvedData:{PTPDate:location.state} }),

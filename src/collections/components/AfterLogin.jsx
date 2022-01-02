@@ -14,14 +14,19 @@ export default function Afterlogin () {
     const { logout } = useAuth0();
     const [collectionStatus, setcollectionStatus] = useState("NOT_SET");
     const [resolvedData, setresolvedData] = useState("");
+    const result = process.env.BACKEND_URL
+    console.log(result)
 
     const [resolved, setresolvedStatus] = useState(false);
 
     useEffect(() => {
         console.log("inside the useEffect")
+        console.log(resolved)
+        console.log(collectionStatus)
+        console.log(resolvedData)
       
     if(collectionStatus == "NOT_SET"){
-      fetch("/retreiveStatus", {
+      fetch("https://tv0t7pabab.execute-api.eu-central-1.amazonaws.com/dev/retrievestatus", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body:JSON.stringify({"email":user.email})
@@ -39,7 +44,7 @@ export default function Afterlogin () {
         console.log(collectionStatus)
         if(collectionStatus == "NOT_FOUND"){
         console.log("new user")
-        fetch("/createStatus", {
+        fetch("https://tv0t7pabab.execute-api.eu-central-1.amazonaws.com/dev/createstatus", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email: user.email, collectionsStatus:"NEW_LOGIN" }),
