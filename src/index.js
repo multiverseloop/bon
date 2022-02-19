@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.css';
 import { Auth0Provider } from "@auth0/auth0-react";
+import { SpeechProvider } from "@speechly/react-client";
 
 
 ReactDOM.render(
@@ -13,8 +14,10 @@ ReactDOM.render(
     domain="dev-mhygi17l.eu.auth0.com"
     clientId="P9XslLnbnkmg1eApfKsDEDA3nfEuEW9C"
     redirectUri= { window.location.origin + "/collections"} >
+  <SpeechProvider appId="6b724e20-87d3-4fa9-82ce-e99734529001">
     <App />
-    </Auth0Provider>,
+    </SpeechProvider>
+    </Auth0Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

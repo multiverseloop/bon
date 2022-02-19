@@ -23,6 +23,7 @@ export default function Collections(props)
       if(isAuthenticated){
         return (
            <Afterlogin/> 
+           
           );
         }
       else {

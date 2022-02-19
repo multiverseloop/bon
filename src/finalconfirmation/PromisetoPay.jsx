@@ -31,20 +31,14 @@ export default function App() {
 
         return  (
             <div>
-            <Container>
+           
             {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
-            <Row><br/></Row>
-            <Row>
-              <Col>
-              
-              </Col>
-            </Row>
             <Row>
               
-              <Col>
+              
                 
-              <Card style={{ width: '33rem' }}>
-                    <CollectionsCarousel/>
+              <Card >
+                   
             
             <Card.Body>
             <Card.Title>Due on your Credit Card ending 1234</Card.Title>
@@ -56,15 +50,17 @@ export default function App() {
               </Card.Text>
             
               <Row>
-              <Col><Button variant="danger" size="lg" onClick={e => setOption( "collections")}>Back</Button></Col>
+                <Col></Col>
+              <Col><Button variant="danger"  onClick={e => setOption( "collections")}>Back</Button></Col>
+              <Col></Col>
           </Row>
             </Card.Body>
           </Card>
-          </Col>
+        
           </Row>
           
             
           
-        </Container>
+        
                 </div>);
 }

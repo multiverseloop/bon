@@ -31,7 +31,7 @@ export default function App() {
 
         return  (
             <div>
-            <Container>
+            
             {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
             <Row><br/></Row>
             <Row>
@@ -43,8 +43,8 @@ export default function App() {
               
               <Col>
                 
-              <Card style={{ width: '33rem' }}>
-                    <CollectionsCarousel/>
+              <Card>
+                    
             
             <Card.Body>
             <Card.Title>Due on your Credit Card ending 1234</Card.Title>
@@ -55,7 +55,9 @@ export default function App() {
               We noted that a payment has already been made on {location.state}
               </Card.Text>
               <Row>
-              <Col><Button variant="danger" size="lg" onClick={e => setOption( "collections")}>Back</Button></Col>
+                <Col></Col>
+              <Col><Button variant="danger" onClick={e => setOption( "collections")}>Back</Button></Col>
+              <Col></Col>
           </Row>
             </Card.Body>
           </Card>
@@ -64,6 +66,6 @@ export default function App() {
           
             
           
-        </Container>
+        
                 </div>);
 }

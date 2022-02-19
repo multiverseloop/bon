@@ -20,7 +20,7 @@ function Help() {
     <Col>
       
           <Card >
-          <CollectionsCarousel/>
+          
   
   <Card.Body>
   <Card.Title>Due on your Credit Card ending 1234</Card.Title>

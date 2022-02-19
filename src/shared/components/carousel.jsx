@@ -7,7 +7,7 @@ import savetrees from '../../assets/SavePaper.jpg'
 class CollectionsCarousel extends React.Component {
     render() { 
         return (
-          <Card >
+          
         <Carousel>
   <Carousel.Item>
     <img
@@ -23,7 +23,7 @@ class CollectionsCarousel extends React.Component {
       alt="First slide" 
     />
   </Carousel.Item>
-  </Carousel></Card>);
+  </Carousel>);
     }
 }
  

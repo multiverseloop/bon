@@ -4,14 +4,14 @@ import { Alert, Row, Col} from 'react-bootstrap';
 
 
 
-export default function resolvedCP(props) {
-  const CPDate = props.date;
+export default function PaymentSuccess(props) {
+  const PaymentDate = props.date;
         return  (
-          <Row>
+          
             
           <Alert variant="success">
-          <p>You have confirmed that a payment has been made on {CPDate}.</p>
+          <p>You have already made a payment on {PaymentDate}.</p>
           </Alert>
         
-          </Row>);
+          );
 }

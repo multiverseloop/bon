@@ -34,7 +34,7 @@ export default function ConfirmPayment() {
       
         return (
             <div>
-            <Container>
+            
             {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
             
             {option==="confirmed" && (<Navigate to="/confirmedpaymentfinal" replace={true} state={cpDate}/>)} 
@@ -49,7 +49,7 @@ export default function ConfirmPayment() {
               <Col>
                 
               <Card>
-                    <CollectionsCarousel/>
+                   
             
             <Card.Body>
             <Card.Title>Due on your Credit Card ending 1234</Card.Title>
@@ -64,17 +64,13 @@ export default function ConfirmPayment() {
         
               </Card.Text>
               <Row>
-              <Col><Button variant="danger" size="lg" onClick={e => setOption("collections")}>Back</Button></Col>
-              <Col><Button variant="primary" size="lg" onClick={e => setOption("confirmed")} disabled={disabled}>Submit</Button></Col>
+              <Col><Button variant="danger"  onClick={e => setOption("collections")}>Back</Button></Col>
+              <Col><Button variant="primary" onClick={e => setOption("confirmed")} disabled={disabled}>Submit</Button></Col>
           </Row>
             </Card.Body>
           </Card>
           </Col>
           </Row>
-          
-            
-          
-        </Container>
                 </div>);
     }
 

@@ -19,19 +19,12 @@ class PayNow extends React.Component {
     render() { 
         return  (
           <div>
-          <Container>
+        
           {this.state.option==="collections" && (<Navigate to="/collections" replace={true} />)} 
-          <Row><br/></Row>
+          <Card>
           <Row>
-            <Col>
-            
-            </Col>
           </Row>
           <Row>
-            <Col>
-              
-                  <Card>
-                  <CollectionsCarousel/>
           
           <Card.Body>
           <Card.Title>Due on your Credit Card ending 1234</Card.Title>
@@ -41,23 +34,21 @@ class PayNow extends React.Component {
             <Card.Text>
             Please select one of the following payment options. 
             </Card.Text>
-            <Row>
-            <PaymentOptions/>
-          
-        </Row>
-        <Row><br/></Row>
-        <Row>
-              <Col><Button variant="danger" size="lg" onClick={e => this.setState({ option: "collections" })}>Back</Button></Col>
+          </Card.Body>
+          </Row>
+          <Row><PaymentOptions/></Row>
+          <Row><br/></Row>
+          <Row>
+             <Col></Col> 
+             <Col><Button variant="danger"  onClick={e => this.setState({ option: "collections" })}>Back</Button></Col>
+             <Col></Col>
               
           </Row>
-          </Card.Body>
-        </Card>
-        </Col>
-        </Row>
+          </Card>
+           
         
-          
         
-      </Container>
+     
               </div>);
     }
 }

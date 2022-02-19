@@ -29,7 +29,7 @@ export default function PTP() {
 
         return (
             <div>
-            <Container>
+            
             {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
             {option==="ptp" && (<Navigate to="/promisetopay" replace={true} state={PTPDate} />)} 
             
@@ -44,7 +44,7 @@ export default function PTP() {
               <Col>
                 
               <Card >
-                    <CollectionsCarousel/>
+                   
             
             <Card.Body>
             <Card.Title>Due on your Credit Card ending 1234</Card.Title>
@@ -56,8 +56,8 @@ export default function PTP() {
               <Form.Control type="date" name="date_of_birth"  onChange={handleChange} min={today} max={maxDate} />
               </Card.Text>
               <Row>
-              <Col><Button variant="danger" size="lg" onClick={e => setOption("collections")}>Back</Button></Col>
-              <Col><Button variant="primary" size="lg" onClick={e => setOption("ptp")} disabled={disabled}>Submit</Button></Col>
+              <Col><Button variant="danger"  onClick={e => setOption("collections")}>Back</Button></Col>
+              <Col><Button variant="primary"  onClick={e => setOption("ptp")} disabled={disabled}>Submit</Button></Col>
           </Row>
             </Card.Body>
           </Card>
@@ -66,7 +66,7 @@ export default function PTP() {
           
             
           
-        </Container>
+        
                 </div>);
     }
 

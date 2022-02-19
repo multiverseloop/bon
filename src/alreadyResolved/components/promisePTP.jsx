@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Component } from 'react';
-import { Alert} from 'react-bootstrap';
+import { Alert,Row,Col} from 'react-bootstrap';
 
 
 
@@ -9,7 +9,10 @@ export default function promisePTP(props) {
   console.log(props)
 
         return  (
+          <Row>
+           
           <Alert variant="success">
-          <Alert.Heading>You have agreed to make a payment by {PTPDate} . No further Action Required.</Alert.Heading>
-          </Alert>);
+          <p>You have agreed to make a payment by {PTPDate}.</p>
+          </Alert>
+          </Row>);
 }

@@ -1,7 +1,8 @@
 import React from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { Container, Row, Col , Card,Button,Carousel} from 'react-bootstrap';
+import { Container, Row, Col , Card,Button,Carousel,Image} from 'react-bootstrap';
 import CollectionsCarousel from '../../shared/components/carousel';
+import logo from '../../assets/Bank of Naboo-logos.jpeg'
 
 
 const Home = () => {
@@ -9,19 +10,31 @@ const Home = () => {
 
   return (
   
-  <div>
-   <Card >
-            <CollectionsCarousel/>
+  <Container fluid>
+    <Row>
+    <Col xs={12} sm={12} lg={6} md={6}>
+    <h1>BON - The bank of planet Naboo</h1> 
+
+    <p> In a galaxy far far and away.... Planet Naboo has opened its first bank to support people with small and medium finances.
+      To allow better customer experience we now provide a website for people to login and check their balances. 
+      Please try to login and see it yourself.</p>
+
+      <p> In a galaxy far far and away.... Planet Naboo has opened its first bank to support people with small and medium finances.
+      To allow better customer experience we now provide a website for people to login and check their balances. 
+      Please try to login and see it yourself.</p>
+    </Col>
+    <Col xs={12} sm={12} lg={6} md={6}>
+    <div className="image-home"></div>
+    </Col>
     
-    <Card.Body>
-    <Card.Title>BON Collections management</Card.Title>
-      <Card.Text>
-      Please proceed to login
-      </Card.Text>
-    </Card.Body>
-  </Card>
-  <button onClick={() => loginWithRedirect()}>Log In</button>
-  </div>);
+  </Row>
+  
+  
+
+  </Container>
+   
+  
+  );
 };
 
 export default Home;

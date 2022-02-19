@@ -7,6 +7,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import Loader from "../../shared/components/Loader";
 import ResolvedRouter from '../../alreadyResolved/components/resolvedRouter';
+import logo from '../../assets/Bank of Naboo-logos.jpeg';
+import {RiUserVoiceFill} from 'react-icons/ri';
+import {PushToTalkButton,BigTranscript,ErrorPanel} from "@speechly/react-ui";
 
 
 export default function Afterlogin () {
@@ -17,7 +20,7 @@ export default function Afterlogin () {
     const result = process.env.BACKEND_URL
     console.log(result)
 
-    const [resolved, setresolvedStatus] = useState(false);
+    const [resolved, setresolvedStatus] = useState();
 
     useEffect(() => {
         console.log("inside the useEffect")
@@ -63,27 +66,46 @@ export default function Afterlogin () {
     },[collectionStatus]);
 
     return (
-        <div>
-          <Container><Row><br/></Row><Row><Col></Col></Row>
-    <Row><Col>
-    <Card >
-    <CollectionsCarousel/>
-    <Card.Body>
+        
+        
+        <Container fluid>
+   
+        
+    <Row >
+    <Col xs={12} sm={10} lg={4} md={4}></Col>
+    <Col xs={12} sm={10} lg={4} md={6}>
     <Card.Title>Due on your Credit Card ending 1234</Card.Title>
-      <Card.Text>
+    </Col>
+  </Row>
+  <Row>
+  <Col xs={12} sm={10} lg={4} md={4}></Col>
+  <Col xs={12} sm={10} lg={4} md={6}>
+  <Card.Text>
       Hello {user.name} Our records show that you just missed a paymemt of $100 on your credit card ending 1234.
       </Card.Text>
-      {(collectionStatus!="NOT_FOUND" && collectionStatus!="NOT_SET" && resolved==false )  ? <Options status={collectionStatus}/> : null}
-      {(resolved == true) ? <ResolvedRouter status={collectionStatus} resolvedData={resolvedData}/> : null}
-    <Button variant="danger" size="lg" onClick={() => logout({ returnTo: window.location.origin })}>logout</Button>
-    </Card.Body>
-  </Card>
-  </Col>
+      </Col>
   </Row>
+  <Row>
+  <Col xs={12} sm={10} lg={4} md={4}></Col>
+  <Col xs={12} sm={10} lg={4} md={6}>
+  {(resolved == null) ? <Row><Col></Col><Col><Loader/></Col></Row>: null}
+      {(collectionStatus!="NOT_FOUND" && collectionStatus!="NOT_SET" && resolved ==false )  ? <Options status={collectionStatus}/> : null }
+      {(resolved == true) ? <ResolvedRouter status={collectionStatus} resolvedData={resolvedData}/> : null}
+      </Col>
+  </Row>
+  <Row>
+  <Col xs={4} sm={9} lg={5} md={5}></Col>
+  <Col xs={5} sm={4} lg={4} md={4}>
+    <Card.Text><BigTranscript placement="top" /></Card.Text>
+      <PushToTalkButton  captureKey=" "/>
+      <ErrorPanel placement="bottom"/></Col>
+  <Col xs={4} sm={4} lg={4} md={4}></Col>
     
+  </Row>
   
 </Container>
-        </div>
-    );
+
+       
+    ); 
 
 }

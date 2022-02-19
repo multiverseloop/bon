@@ -4,9 +4,10 @@ import {
   useStripe,
   useElements
 } from "@stripe/react-stripe-js";
+import { Container, Row, Col , Card,Button,Carousel} from 'react-bootstrap';
 
 import Loader from "../../shared/components/Loader";
-import {Button} from 'react-bootstrap';
+
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -49,6 +50,7 @@ export default function CheckoutForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("submitting payment")
 
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
@@ -62,7 +64,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000/collections",
+        return_url: "http://localhost:3000/paymentsuccess",
       },
     });
 
@@ -81,14 +83,24 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
+    <div>
+      <Row>
+    <form id="payment-form" >
       {widgetLoading && (<Loader />)}
       <PaymentElement id="payment-element" onReady={() => setWidgetLoading(false)} />
       <br/>
-      <Button size="lg" variant="primary" disabled={isLoading || !stripe || !elements}>Pay now</Button>
-
       {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </form>
+    </Row>
+    <Row>
+      <Col></Col>
+      <Col>
+    <Button   variant="primary" disabled={isLoading || !stripe || !elements} onClick
+    ={handleSubmit} >Pay now</Button>
+      </Col>
+      <Col></Col>
+    </Row>
+    </div>
   );
 }
