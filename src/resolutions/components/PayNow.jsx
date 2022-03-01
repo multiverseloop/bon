@@ -18,38 +18,40 @@ class PayNow extends React.Component {
       }
     render() { 
         return  (
-          <div>
+          <Container fluid>
         
           {this.state.option==="collections" && (<Navigate to="/collections" replace={true} />)} 
-          <Card>
-          <Row>
-          </Row>
-          <Row>
           
-          <Card.Body>
-          <Card.Title>Due on your Credit Card ending 1234</Card.Title>
+          <Row >
+    <Col xs={12} sm={10} lg={4} md={4}></Col>
+    <Col xs={12} sm={10} lg={4} md={6}>
+    <Card.Title>Due on your Credit Card ending 1234</Card.Title>
+    </Col>
+  </Row>
+          <Row>
+          <Col xs={12} sm={10} lg={4} md={4}></Col>
+        <Col xs={12} sm={10} lg={4} md={6}>
+
             <Card.Text>
             Our records show that you just missed a paymemt of $100 on your credit card ending 1234. 
             </Card.Text>
             <Card.Text>
             Please select one of the following payment options. 
             </Card.Text>
-          </Card.Body>
+         </Col>
           </Row>
-          <Row><PaymentOptions/></Row>
-          <Row><br/></Row>
-          <Row>
-             <Col></Col> 
-             <Col><Button variant="danger"  onClick={e => this.setState({ option: "collections" })}>Back</Button></Col>
-             <Col></Col>
-              
-          </Row>
-          </Card>
+
+
+          <Row><Col xs={12} sm={10} lg={4} md={4}></Col>
+        <Col xs={12} sm={10} lg={4} md={6}><PaymentOptions/></Col></Row>
+
+         
+         
            
         
         
      
-              </div>);
+              </Container>);
     }
 }
  

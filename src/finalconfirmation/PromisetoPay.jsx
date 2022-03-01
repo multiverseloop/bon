@@ -30,37 +30,43 @@ export default function App() {
   }, []);
 
         return  (
-            <div>
+          <Container fluid>
            
             {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
-            <Row>
+           
+            <Row><br/></Row>
+            <Row >
+    <Col xs={12} sm={10} lg={4} md={4}></Col>
+    <Col xs={12} sm={10} lg={4} md={6}>
+    <Card.Title>Due on your Credit Card ending 1234</Card.Title>
+    </Col>
+  </Row>
+  
               
               
                 
-              <Card >
-                   
-            
-            <Card.Body>
-            <Card.Title>Due on your Credit Card ending 1234</Card.Title>
-              <Card.Text>
-              Thanks for confirming.
-              </Card.Text>
-              <Card.Text>
-              We have noted that a payment will be made by {location.state}
-              </Card.Text>
-            
-              <Row>
-                <Col></Col>
-              <Col><Button variant="danger"  onClick={e => setOption( "collections")}>Back</Button></Col>
-              <Col></Col>
-          </Row>
-            </Card.Body>
-          </Card>
-        
-          </Row>
+   <Row>
+              
+              <Col xs={12} sm={10} lg={4} md={4}></Col>
+    <Col xs={12} sm={10} lg={4} md={6}>
+                <Card.Text>
+                Thanks for confirming.
+                </Card.Text>
+                <Card.Text>
+                We noted that a payment will be made by {location.state}
+                </Card.Text>
+                <br/>
+                </Col>
+                <Row>
+                <Col xs={1} sm={6} lg={5} md={4}></Col>
+                <Col xs={1} sm={6} lg={1} md={4}><Button variant="danger" onClick={e => setOption( "collections")}>Back</Button></Col>
+                <Col xs={1} sm={6} lg={4} md={4}></Col>
+            </Row>
+             
           
+            </Row>
             
-          
+              
         
-                </div>);
+                </Container>);
 }

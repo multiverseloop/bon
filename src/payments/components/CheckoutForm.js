@@ -7,11 +7,13 @@ import {
 import { Container, Row, Col , Card,Button,Carousel} from 'react-bootstrap';
 
 import Loader from "../../shared/components/Loader";
+import { Navigate } from "react-router-dom";
 
 
 export default function CheckoutForm() {
   const stripe = useStripe();
   const elements = useElements();
+  const [option, setOption] = useState("");
 
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -84,6 +86,7 @@ export default function CheckoutForm() {
 
   return (
     <div>
+       {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
       <Row>
     <form id="payment-form" >
       {widgetLoading && (<Loader />)}
@@ -94,12 +97,11 @@ export default function CheckoutForm() {
     </form>
     </Row>
     <Row>
-      <Col></Col>
-      <Col>
-    <Button   variant="primary" disabled={isLoading || !stripe || !elements} onClick
-    ={handleSubmit} >Pay now</Button>
+    <Col xs={2} sm={6} lg={3} md={2}></Col>
+      <Col xs={3} sm={6} lg={4} md={4}> <Button   variant="danger" onClick={e => setOption("collections")} >Back</Button></Col>
+      <Col xs={4} sm={6} lg={4} md={4}><Button   variant="primary" disabled={isLoading || !stripe || !elements} onClick={handleSubmit} >Pay now</Button>
       </Col>
-      <Col></Col>
+      
     </Row>
     </div>
   );

@@ -33,26 +33,23 @@ export default function ConfirmPayment() {
 
       
         return (
-            <div>
+          <Container fluid>
             
             {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
             
             {option==="confirmed" && (<Navigate to="/confirmedpaymentfinal" replace={true} state={cpDate}/>)} 
-            <Row><br/></Row>
-            <Row>
-              <Col>
-              
-              </Col>
-            </Row>
-            <Row>
-              
-              <Col>
-                
-              <Card>
-                   
+           
+            <Row >
+    <Col xs={12} sm={10} lg={4} md={4}></Col>
+    <Col xs={12} sm={10} lg={4} md={6}>
+    <Card.Title>Due on your Credit Card ending 1234</Card.Title>
+    </Col>
+  </Row>
+  
+  <Row>
+  <Col xs={12} sm={10} lg={4} md={4}></Col>
+  <Col xs={12} sm={10} lg={4} md={6}>
             
-            <Card.Body>
-            <Card.Title>Due on your Credit Card ending 1234</Card.Title>
               <Card.Text>
               If you have already paid please let us know when and we can store it in our records. 
               </Card.Text>
@@ -60,18 +57,22 @@ export default function ConfirmPayment() {
               Please select the date and click on submit. 
              
               <Form.Control type="date" name="date_of_birth"  onChange={handleChange} min={minDate} max={today} />
-              
-        
               </Card.Text>
+              <br/>
+              </Col>
+  </Row>
               <Row>
-              <Col><Button variant="danger"  onClick={e => setOption("collections")}>Back</Button></Col>
-              <Col><Button variant="primary" onClick={e => setOption("confirmed")} disabled={disabled}>Submit</Button></Col>
+
+              <Col xs={1} sm={6} lg={4} md={4}></Col>
+              
+              <Col xs={4} sm={6} lg={1} md={2}><Button variant="danger"  onClick={e => setOption("collections")}>Back</Button></Col>
+              <Col xs={4} sm={6} lg={1} md={2}><Button variant="primary" onClick={e => setOption("confirmed")} disabled={disabled}>Submit</Button></Col>
+             
           </Row>
-            </Card.Body>
-          </Card>
-          </Col>
-          </Row>
-                </div>);
+            
+        
+    
+                </Container>);
     }
 
  

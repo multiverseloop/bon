@@ -28,26 +28,22 @@ export default function PTP() {
 
 
         return (
-            <div>
+          <Container fluid>
             
             {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
             {option==="ptp" && (<Navigate to="/promisetopay" replace={true} state={PTPDate} />)} 
             
-            <Row><br/></Row>
+            <Row >
+    <Col xs={12} sm={10} lg={4} md={4}></Col>
+    <Col xs={12} sm={10} lg={4} md={6}>
+    <Card.Title>Due on your Credit Card ending 1234</Card.Title>
+    </Col>
+  </Row>
             <Row>
-              <Col>
               
-              </Col>
-            </Row>
-            <Row>
-              
-              <Col>
+            <Col xs={12} sm={10} lg={4} md={4}></Col>
+  <Col xs={12} sm={10} lg={4} md={6}>
                 
-              <Card >
-                   
-            
-            <Card.Body>
-            <Card.Title>Due on your Credit Card ending 1234</Card.Title>
               <Card.Text>
                Please let us know by when and we can store it in our records. 
               </Card.Text>
@@ -55,19 +51,22 @@ export default function PTP() {
               Please select the date and click on submit. 
               <Form.Control type="date" name="date_of_birth"  onChange={handleChange} min={today} max={maxDate} />
               </Card.Text>
+              <br/>
+              </Col>
+          </Row>
+
               <Row>
-              <Col><Button variant="danger"  onClick={e => setOption("collections")}>Back</Button></Col>
-              <Col><Button variant="primary"  onClick={e => setOption("ptp")} disabled={disabled}>Submit</Button></Col>
+              <Col xs={1} sm={6} lg={4} md={4}></Col>
+              <Col xs={4} sm={6} lg={1} md={2}><Button variant="danger"  onClick={e => setOption("collections")}>Back</Button></Col>
+              <Col xs={4} sm={6} lg={1} md={2}><Button variant="primary"  onClick={e => setOption("ptp")} disabled={disabled}>Submit</Button></Col>
           </Row>
-            </Card.Body>
-          </Card>
-          </Col>
-          </Row>
+            
+         
           
             
           
         
-                </div>);
+                </Container>);
     }
 
  

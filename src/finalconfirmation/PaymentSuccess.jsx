@@ -29,35 +29,45 @@ export default function App() {
         
     }, []);
     return  (
-        <div>
+      <Container fluid>
+           
+      {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
+     
+      <Row><br/></Row>
+      <Row >
+<Col xs={12} sm={10} lg={4} md={4}></Col>
+<Col xs={12} sm={10} lg={4} md={6}>
+<Card.Title>Due on your Credit Card ending 1234</Card.Title>
+</Col>
+</Row>
+
         
-        {option==="collections" && (<Navigate to="/collections" replace={true} />)} 
-        <Row>
-          
-          
-            
-          <Card >
-                
         
-        <Card.Body>
-        <Card.Title>Due on your Credit Card ending 1234</Card.Title>
+          
+<Row>
+        
+        <Col xs={12} sm={10} lg={4} md={4}></Col>
+<Col xs={12} sm={10} lg={4} md={6}>
           <Card.Text>
-          Thanks for making the payment. We will update the account. 
+          Thanks for making the payment.
           </Card.Text>
+          <Card.Text>
+          We will update your account.
+          </Card.Text>
+          <br/>
+          </Col>
           <Row>
-            <Col></Col>
-          <Col><Button variant="danger"  onClick={e => setOption( "collections")}>Back</Button></Col>
-          <Col></Col>
+          <Col xs={1} sm={6} lg={5} md={4}></Col>
+          <Col xs={1} sm={6} lg={1} md={4}><Button variant="danger" onClick={e => setOption( "collections")}>Back</Button></Col>
+          <Col xs={1} sm={6} lg={4} md={4}></Col>
       </Row>
-        </Card.Body>
-      </Card>
+       
     
       </Row>
       
         
-      
-    
-            </div>
+  
+          </Container>
 
 
     );
