@@ -11,6 +11,7 @@ import Help from './resolutions/components/Help';
 import PaymentOptions from './payments/components/PaymentOptions';
 import ConfirmedPayment from './finalconfirmation/ConfirmedPayment';
 import PromisetoPay from './finalconfirmation/PromisetoPay';
+import About from './shared/components/About';
 import { useAuth0 } from "@auth0/auth0-react";
 import resolvedCP from './alreadyResolved/components/resolvedCP'
 import PromisePTP from './alreadyResolved/components/promisePTP'
@@ -32,7 +33,7 @@ function App() {
      <Navbar bg="light" variant="light">
      <Container fluid >
        <Col>
-     <Navbar.Brand href="#home">
+     <Navbar.Brand href="/">
       Bank of Naboo</Navbar.Brand>
      
       
@@ -40,8 +41,8 @@ function App() {
     
      </Col>
      <Col></Col>
-     <Col><Nav.Link href="#features">About</Nav.Link></Col>
-     <Col><Nav.Link href="#home">Blog</Nav.Link></Col>
+     <Col><Nav.Link href="about">About</Nav.Link></Col>
+     {isAuthenticated && <Col><Nav.Link href="collections">My Account</Nav.Link></Col> }
      <Col> </Col>
      <Col></Col>
      <Col></Col>
@@ -69,6 +70,8 @@ function App() {
       <Route path="/promisePTP" element={<PromisePTP />} />
       <Route path="/promise" element={<Promise />} />
       <Route path="/help" element={<Help />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/paymentsuccess" element={<PaymentSuccess />} />
       <Route path="/paymentsuccess" element={<PaymentSuccess />} />
     </Routes>
    
